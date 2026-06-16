@@ -4,8 +4,135 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UI Kit Dev</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      body {
+        font-family: system-ui, sans-serif;
+        margin: 0;
+        padding: 2rem;
+        background: #f9fafb;
+        color: #111827;
+      }
+      h1 { font-size: 1.5rem; font-weight: 700; margin: 0 0 2rem; }
+      h2 { font-size: 1rem; font-weight: 600; margin: 2rem 0 0.75rem; color: #374151; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.5rem; }
+      .row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 1rem; }
+      .col { display: flex; flex-direction: column; gap: 0.75rem; max-width: 320px; }
+    </style>
   </head>
   <body>
     <script type="module" src="/src/index.ts"></script>
+
+    <h1>UI Kit — Dev Playground</h1>
+
+    <!-- Button -->
+    <h2>Button</h2>
+    <div class="row">
+      <ui-button variant="primary">Primary</ui-button>
+      <ui-button variant="secondary">Secondary</ui-button>
+      <ui-button variant="outline">Outline</ui-button>
+      <ui-button variant="ghost">Ghost</ui-button>
+      <ui-button variant="danger">Danger</ui-button>
+    </div>
+    <div class="row">
+      <ui-button size="sm">Small</ui-button>
+      <ui-button size="md">Medium</ui-button>
+      <ui-button size="lg">Large</ui-button>
+      <ui-button disabled>Disabled</ui-button>
+      <ui-button loading>Loading</ui-button>
+    </div>
+
+    <!-- Badge -->
+    <h2>Badge</h2>
+    <div class="row">
+      <ui-badge variant="default">Default</ui-badge>
+      <ui-badge variant="primary">Primary</ui-badge>
+      <ui-badge variant="success">Success</ui-badge>
+      <ui-badge variant="warning">Warning</ui-badge>
+      <ui-badge variant="danger">Danger</ui-badge>
+      <ui-badge variant="info">Info</ui-badge>
+    </div>
+    <div class="row">
+      <ui-badge variant="primary" shape="pill">Pill</ui-badge>
+      <ui-badge size="sm">Small</ui-badge>
+      <ui-badge size="lg">Large</ui-badge>
+    </div>
+
+    <!-- Input -->
+    <h2>Input</h2>
+    <div class="col">
+      <ui-input label="Email" placeholder="Enter your email" type="email" helper-text="We'll never share your email."></ui-input>
+      <ui-input label="Username" placeholder="Enter username" error error-message="Username must be at least 3 characters."></ui-input>
+      <ui-input label="Username" placeholder="Enter username" success helper-text="Username is available!"></ui-input>
+      <ui-input label="Disabled" placeholder="Cannot edit" disabled></ui-input>
+    </div>
+
+    <!-- Tooltip -->
+    <h2>Tooltip</h2>
+    <div class="row" style="padding: 3rem 1rem;">
+      <ui-tooltip content="Top tooltip" placement="top">
+        <ui-button variant="outline">Top</ui-button>
+      </ui-tooltip>
+      <ui-tooltip content="Bottom tooltip" placement="bottom">
+        <ui-button variant="outline">Bottom</ui-button>
+      </ui-tooltip>
+      <ui-tooltip content="Left tooltip" placement="left">
+        <ui-button variant="outline">Left</ui-button>
+      </ui-tooltip>
+      <ui-tooltip content="Right tooltip" placement="right">
+        <ui-button variant="outline">Right</ui-button>
+      </ui-tooltip>
+      <ui-tooltip content="Click to toggle" trigger="click">
+        <ui-button variant="outline">Click</ui-button>
+      </ui-tooltip>
+    </div>
+
+    <!-- Modal -->
+    <h2>Modal</h2>
+    <div class="row">
+      <ui-button variant="primary" id="open-modal-sm">Open Small</ui-button>
+      <ui-button variant="secondary" id="open-modal-md">Open Medium</ui-button>
+      <ui-button variant="outline" id="open-modal-lg">Open Large</ui-button>
+    </div>
+
+    <ui-modal id="modal-sm" size="sm">
+      <span slot="header" style="font-weight:600;font-size:1.125rem;">Small Modal</span>
+      <p>This is a small modal dialog.</p>
+      <div slot="footer">
+        <ui-button variant="ghost" id="close-modal-sm">Cancel</ui-button>
+        <ui-button variant="primary">Confirm</ui-button>
+      </div>
+    </ui-modal>
+
+    <ui-modal id="modal-md" size="md">
+      <span slot="header" style="font-weight:600;font-size:1.125rem;">Medium Modal</span>
+      <p>This is a medium modal dialog with some body content.</p>
+      <div slot="footer">
+        <ui-button variant="ghost" id="close-modal-md">Cancel</ui-button>
+        <ui-button variant="primary">Confirm</ui-button>
+      </div>
+    </ui-modal>
+
+    <ui-modal id="modal-lg" size="lg">
+      <span slot="header" style="font-weight:600;font-size:1.125rem;">Large Modal</span>
+      <p>This is a large modal dialog. It can contain more content here.</p>
+      <div slot="footer">
+        <ui-button variant="ghost" id="close-modal-lg">Cancel</ui-button>
+        <ui-button variant="primary">Confirm</ui-button>
+      </div>
+    </ui-modal>
+
+    <script type="module">
+      const sm = document.getElementById('modal-sm');
+      const md = document.getElementById('modal-md');
+      const lg = document.getElementById('modal-lg');
+
+      document.getElementById('open-modal-sm').addEventListener('ui-click', () => sm.show());
+      document.getElementById('open-modal-md').addEventListener('ui-click', () => md.show());
+      document.getElementById('open-modal-lg').addEventListener('ui-click', () => lg.show());
+
+      document.getElementById('close-modal-sm').addEventListener('ui-click', () => sm.close());
+      document.getElementById('close-modal-md').addEventListener('ui-click', () => md.close());
+      document.getElementById('close-modal-lg').addEventListener('ui-click', () => lg.close());
+    </script>
   </body>
 </html>
