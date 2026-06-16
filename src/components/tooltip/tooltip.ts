@@ -54,9 +54,9 @@ export class UITooltip extends LitElement {
       padding: 0.375rem 0.625rem;
       border-radius: 4px;
       max-width: var(--ui-tooltip-max-width);
-      white-space: normal;
-      word-break: break-word;
-      pointer-events: none;
+      width: max-content;
+      white-space: nowrap;
+      pointer-events: auto;
       z-index: 9999;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       opacity: 0;
