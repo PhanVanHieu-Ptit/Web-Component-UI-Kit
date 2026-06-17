@@ -8,18 +8,11 @@ A framework-agnostic component library built with [Lit 3](https://lit.dev/) and 
 
 > **Live Storybook** — run `npm run storybook` locally to browse all components with interactive controls, accessibility checks, and source code.
 
-<!-- Replace with a real screenshot or Chromatic / deployed Storybook URL once available -->
-```
-┌─────────────────────────────────────────────────────┐
-│  Storybook  │  Canvas  │  Controls  │  Accessibility │
-│─────────────────────────────────────────────────────│
-│  Button     │  [Primary ▼]  [sm md lg]  [□ Loading] │
-│  Input      │  Label ──────────────────────────────  │
-│  Badge      │  ● Success   ◉ Warning   ● Danger     │
-│  Modal      │  [Open Modal]  →  [Dialog with slots]  │
-│  Tooltip    │  Hover me ↑   top · bottom · left…    │
-└─────────────────────────────────────────────────────┘
-```
+Live demo: https://web-component-ui-kit.vercel.app/
+
+
+<img width="538" height="920" alt="image" src="https://github.com/user-attachments/assets/68980ebb-6d3b-457a-8611-e35115a5dac6" />
+
 
 ---
 
